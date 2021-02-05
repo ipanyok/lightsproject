@@ -27,7 +27,7 @@ public class CreateCarAction implements Runnable {
     public void run() {
         try {
             while (!Thread.interrupted()) {
-                TimeUnit.SECONDS.sleep(random.nextInt(3));
+                TimeUnit.SECONDS.sleep(random.nextInt(5)); // сделать генерация для каждой дороги!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 Car car = Car.generateRandomCar();
 
                 int value = random.nextInt(4);

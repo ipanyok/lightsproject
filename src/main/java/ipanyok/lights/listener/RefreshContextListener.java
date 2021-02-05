@@ -1,15 +1,14 @@
 package ipanyok.lights.listener;
 
 
-import ipanyok.lights.action.CreateCarAction;
-import ipanyok.lights.action.GreenLightAction;
+import ipanyok.lights.action.*;
 import ipanyok.lights.model.Lights;
-import ipanyok.lights.action.RedLightAction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -23,19 +22,17 @@ public class RefreshContextListener implements ApplicationListener<ContextRefres
     private CreateCarAction createCar;
 
     @Autowired
-    private GreenLightAction greenLightAction;
-
-    @Autowired
-    private RedLightAction redLightAction;
+    private List<LightsAction> actions;
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         System.out.println("Start with " + lights.getColor());
-        ExecutorService executor = Executors.newFixedThreadPool(5);
+        ExecutorService executor = Executors.newCachedThreadPool();
         executor.execute(lights);
         executor.execute(createCar);
-        executor.execute(greenLightAction);
-        executor.execute(redLightAction);
+
+        actions.forEach(action -> executor.execute(action));
+
         executor.shutdown();
     }
 }
