@@ -1,7 +1,8 @@
 package ipanyok.lights.listener;
 
 
-import ipanyok.lights.action.*;
+import ipanyok.lights.action.CreateCarAction;
+import ipanyok.lights.action.LightsAction;
 import ipanyok.lights.model.Lights;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -34,6 +35,7 @@ public class RefreshContextListener implements ApplicationListener<ContextRefres
         actions.forEach(action -> executor.execute(action));
 
         executor.shutdown();
+
     }
 }
 

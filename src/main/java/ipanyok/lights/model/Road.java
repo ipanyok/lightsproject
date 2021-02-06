@@ -13,19 +13,19 @@ public class Road {
     private List<Car> eastRoad = new ArrayList<>();
     private List<Car> westRoad = new ArrayList<>();
 
-    public synchronized List<Car> getNorthRoad() {
+    public List<Car> getNorthRoad() {
         return northRoad;
     }
 
-    public synchronized List<Car> getSouthRoad() {
+    public List<Car> getSouthRoad() {
         return southRoad;
     }
 
-    public synchronized List<Car> getEastRoad() {
+    public List<Car> getEastRoad() {
         return eastRoad;
     }
 
-    public synchronized List<Car> getWestRoad() {
+    public List<Car> getWestRoad() {
         return westRoad;
     }
 
