@@ -20,19 +20,19 @@ public class RefreshContextListener implements ApplicationListener<ContextRefres
     private Lights lights;
 
     @Autowired
-    private CreateCarAction createCar;
+    private List<CreateCarAction> createCarActions;
 
     @Autowired
-    private List<LightsAction> actions;
+    private List<LightsAction> lightsActions;
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         System.out.println("Start with " + lights.getColor());
         ExecutorService executor = Executors.newCachedThreadPool();
         executor.execute(lights);
-        executor.execute(createCar);
 
-        actions.forEach(action -> executor.execute(action));
+        createCarActions.forEach(action -> executor.execute(action));
+        lightsActions.forEach(action -> executor.execute(action));
 
         executor.shutdown();
 
