@@ -31,7 +31,7 @@ public abstract class CreateCarAction implements Runnable {
     public void run() {
         try {
             while (!Thread.interrupted()) {
-                TimeUnit.SECONDS.sleep(random.nextInt(8));
+                TimeUnit.SECONDS.sleep(random.nextInt(5));
                 execute();
             }
         } catch (Exception e) {
