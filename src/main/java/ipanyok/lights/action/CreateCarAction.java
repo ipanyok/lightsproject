@@ -27,6 +27,10 @@ public abstract class CreateCarAction implements Runnable {
         return roadSituationService;
     }
 
+    public Random getRandom() {
+        return random;
+    }
+
     @Override
     public void run() {
         try {

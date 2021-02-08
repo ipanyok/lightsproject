@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @Entity
 public class RoadSituation {
 
-    public enum Status {WAIT, GOES}
+    public enum Status {WAIT, GOES, GOES_ON_RED}
     public enum Roads {EAST, WEST, NORTH, SOUTH}
 
     @Id
