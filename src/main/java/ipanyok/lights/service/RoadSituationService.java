@@ -29,4 +29,10 @@ public class RoadSituationService {
         return roadSituationRepository.findAll();
     }
 
+    @Transactional
+    public List<RoadSituation> findByStatus(RoadSituation.Status status) {
+        return roadSituationRepository.findByStatus(status);
+    }
+
+
 }

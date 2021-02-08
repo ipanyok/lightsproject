@@ -1,4 +1,4 @@
-package ipanyok.lights.action.impl;
+package ipanyok.lights.action.impl.lights;
 
 import ipanyok.lights.action.LightsAction;
 import ipanyok.lights.model.Lights;
@@ -10,15 +10,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class GreenLightSouthRoadAction extends LightsAction {
+public class RedLightWestRoadAction extends LightsAction {
 
     @Autowired
-    public GreenLightSouthRoadAction(Road road, Lights lights, RoadSituationService roadSituationService) {
+    public RedLightWestRoadAction(Road road, Lights lights, RoadSituationService roadSituationService) {
         super(road, lights, roadSituationService);
     }
 
     @Override
     public void execute() throws Exception {
-        LightsActionUtils.doing(super.getRoad(), super.getRoad().getSouthRoad(), super.getLights(), Lights.Color.GREEN, RoadSituation.Roads.SOUTH, super.getRoadSituationService(), super.getRandom());
+        LightsActionUtils.doing(super.getRoad(), super.getRoad().getWestRoad(), super.getLights(), Lights.Color.RED, RoadSituation.Roads.WEST, super.getRoadSituationService(), super.getRandom());
     }
 }

@@ -1,4 +1,4 @@
-package ipanyok.lights.action.impl;
+package ipanyok.lights.action.impl.cars;
 
 import ipanyok.lights.action.CreateCarAction;
 import ipanyok.lights.model.Road;

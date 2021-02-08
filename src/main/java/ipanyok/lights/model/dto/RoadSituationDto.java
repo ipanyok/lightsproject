@@ -1,7 +1,5 @@
 package ipanyok.lights.model.dto;
 
-import ipanyok.lights.model.Car;
-
 import java.util.ArrayList;
 import java.util.List;
 
